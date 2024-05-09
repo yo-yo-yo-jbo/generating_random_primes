@@ -18,5 +18,7 @@ That means that when choosing random number between `1` and `X`, the probability
 
 In terms of complexity, it's important to note our input is *the number of bits required to represent X rather than X itself*.  
 If `X = 2^n` then `ln(X) = ln(2^n) = n ln(2) = O(n)`, which means the chances of a "lucky draw" is in the order of `1/n`.  
-That is encouraging! As I mentioned in a previous blogpost, `4096` bits is considered pretty safe, so checking for primality around `4096` times is not too bad.  
-Of course, this all depends on the primality test complexity. In order to be efficient, it has to also be some constant power of `ln(X)`, i.e. `(ln (X))^k` for some constant `k`.
+That is encouraging! As I mentioned in a previous blogpost, `4096` bits is considered pretty safe (nowadays anyway!), so checking for primality around `4096` times is not too bad.  
+Of course, this all depends on the primality test complexity. In order to be efficient, it has to also be some constant power of `ln(X)`, i.e. `(ln (X))^k` for some constant `k`.  
+Naive primality tests such as checking if any number between `2` and `sqrt(x)` divide `x` are not good, since their complexity is linear in `x`, and `O(x) = O(2^n)`.  
+
