@@ -11,4 +11,6 @@ A naive (and not wrong) idea on how to generate a random prime number between 1 
 2. Check if the number is random. If it is - great! Otherwise, repeat step 1.
 
 While that sounds silly, it's not a bad idea, assuming the primality test (step 2) has good time-complexity. Let's assume it does - what would the overall complexity be?  
-Well, that depends on the expected number of primes in the range `1 - X`. That number is sometimes denoted as `π(X)` and has a good approximation - according to the [Prime number theorem](https://en.wikipedia.org/wiki/Prime_number_theorem) (which I won't prove now): `π(X)` is approximately `X / ln(X)`.
+Well, that depends on the expected number of primes in the range `1 - X`. That number is sometimes denoted as `π(X)` and has a good approximation - according to the [Prime number theorem](https://en.wikipedia.org/wiki/Prime_number_theorem) (which I won't prove now): `π(X)` is approximately `X / ln(X)`.  
+That means that when choosing random number between `1` and `X`, the probability of hitting a prime is approximately `π(X) / X = (X / ln(X)) / X = 1 / ln(X)`.  
+In terms of complexity, it's important to note our input is *the number of bits required to represent X rather than X itself*. If `X = 2^n` then `ln(X) = ln(2^n) = 2 ln(n)`.
