@@ -45,7 +45,7 @@ I will not explain exactly why that happens, but I will give a hint - under `mod
 With that in mind, let's see how we can efficiently use those two properties!
 
 ## Miller-Rabin algorithm
-Let's use Fermat's Little theorem and choose a random `a` in the range `2,3,...n-1`. We could efficiently check if it's coprime to `n` using the [Euclidean Algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm) - if we found such an `a` we can immidiately determine `n` is not prime by definition.
+Let's use Fermat's Little theorem and choose a random `a` in the range `2,3,...,n-1`. We could efficiently check if it's coprime to `n` using the [Euclidean Algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm) - if we found such an `a` we can immidiately determine `n` is not prime by definition.
 
 
 
