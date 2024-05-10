@@ -30,7 +30,7 @@ Well, what do we know primes, besides their definition? A few things come to min
 2. The fact that `Z*n` ([the multiplicative Group mod n](https://en.wikipedia.org/wiki/Multiplicative_group_of_integers_modulo_n)) has the size `n-1`. That's just a different way of saying that there all numbers in the range `2,3,...,n-1` are coprime to `n`, so it's kind of a repetition of the definition. However, saying that `Z*n` is a Group is quite powerful, and, in fact, we will use a certain quality that goes a bit beyond that today.
 3. [Fermat's Little thorem](https://en.wikipedia.org/wiki/Fermat%27s_little_theorem) (not to be confused with [Fermat's Last theorem](https://en.wikipedia.org/wiki/Fermat's_Last_Theorem)!) which state that if `p` is a prime number then `a^p = a (mod p)` for every `a` that is coprime to `p`. Another way to formulate it that you might find in literature is `a^(p-1) = 1 (mod p)`, which is, of course, equivalent.
 
-We'll start with Fermat's Little theorem, since it's quite powerful. It's obvious if we find an `a` that is coprime to `n` such that `a^n` is not `1 (mod n)` then obviously it's a definite proof that `n` is not prime. Well, what happens otherwise? Of course we could 
-
+We'll start with Fermat's Little theorem, since it's quite powerful. It's obvious if we find an `a` that is coprime to `n` such that `a^n` is not `1 (mod n)` then obviously it's a definite proof that `n` is not prime. Well, what happens otherwise? Of course we couldn't check all values in the range due to the time complexity, so, in the spirit of probabilistic algorithms, we'd hope for a non-prime `n` there are many values of `a` that violate the equation in Fermat's Little theorem.  
+Unfortunately, that's not the case, and, in fact, there are composite numbers (known as [Carmichael Numbers](https://mathworld.wolfram.com/CarmichaelNumber.html)) that *always* satisfy Fermat's Little theorem (for *every* `a`), even though they're composite.
 
 
