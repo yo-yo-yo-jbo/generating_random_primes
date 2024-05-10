@@ -22,3 +22,13 @@ That is encouraging! As I mentioned in a previous blogpost, `4096` bits is consi
 Of course, this all depends on the primality test complexity. In order to be efficient, it has to also be some constant power of `ln(X)`, i.e. `(ln (X))^k` for some constant `k`.  
 Naive primality tests such as checking if any number between `2` and `sqrt(x)` divide `x` are not good, since their complexity is linear in `x`, and `O(x) = O(2^n)`.  
 
+## Primality check ideas
+After we've established a naive primality test isn't a good idea, we need an alternative approach.  
+One approach that is often used in math is finding certain qualities of properties of a certain set of numbers, that isn't true for other numbers.  
+Well, what do we know primes, besides their definition? A few things come to mind, at least for me:
+1. [Wilson's theorem](https://en.wikipedia.org/wiki/Wilson%27s_theorem): for a prime `n` the following is true: `(n-1)! = -1 (mod n)`, *and vice versa*. While proving it is not difficult, we will not do it today, nor will we use that since factorization is extremely computationally expansive (`O(n^n)` according to [Stirling's approximation](https://en.wikipedia.org/wiki/Stirling's_approximation)).
+2. The fact that `Z*n` ([the multiplicative Group mod n](https://en.wikipedia.org/wiki/Multiplicative_group_of_integers_modulo_n)) has the size `n-1`. That's just a different way of saying that there all numbers in the range `2,3,...,n-1` are coprime to `n`, so it's kind of a repetition of the definition. However, saying that `Z*n` is a Group is quite powerful, and, in fact, we will use a certain quality that goes a bit beyond that today.
+3. [Fermat's Little thorem](https://en.wikipedia.org/wiki/Fermat%27s_little_theorem) (not to be confused with [Fermat's Last theorem](https://en.wikipedia.org/wiki/Fermat's_Last_Theorem)!) which state that if `p` is a prime number then `a^p = a (mod p)` for every `a` that is coprime to `p`.
+
+
+
