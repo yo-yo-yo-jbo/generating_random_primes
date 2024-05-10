@@ -35,7 +35,7 @@ We'll start with Fermat's Little theorem, since it's quite powerful. It's obviou
 Unfortunately, that's not the case, and, in fact, there are composite numbers (known as [Carmichael Numbers](https://mathworld.wolfram.com/CarmichaelNumber.html)) that *always* satisfy Fermat's Little theorem (for *every* `a`), even though they're composite.  
 Our solution would be using Fermat's Little theorem, but also use another property of primes while calculating `a^n mod n`.
 
-### Nontrivial roots of 1
+### Non-trivial roots of 1
 I mentioned that a nice property of primes is that the [multiplicative Group mod n](https://en.wikipedia.org/wiki/Multiplicative_group_of_integers_modulo_n) contains all numbers between `2` and `n-1`.  
 We could use that property in a nice way while calculating `a^n (mod n)`, by noticing that non-primes might have non-trivial roots of 1.  
 What is a root of 1? It's just a number that satisfy `x^2 = 1 (mod n)`. If `n` is prime then there are only two such roots: `1` and `-1` (which is really `n-1`).  
@@ -43,5 +43,9 @@ For example, for `n=7` we get `6^2 = 36 = 1 (mod 7)`, and `1^2 = 1 (mod 7)`, but
 However, for `n=8` we get `1^2 = 3^2 = 5^2 = 7^2 (mod 8)`, and therefore, `3` and `5` are non-trivial roots of 1.  
 I will not explain exactly why that happens, but I will give a hint - under `mod 8` we have zero-divisors - `2` and `4`, which makes `3` and `5` "kind of behave" like 1, making them non-trivial roots of 1.  
 With that in mind, let's see how we can efficiently use those two properties!
+
+## Miller-Rabin algorithm
+Let's use Fermat's Little theorem and choose a random `a` in the range `2,3,...n-1`. We could efficiently check if it's coprime to `n` using the [Euclidean Algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm) - if we found such an `a` we can immidiately determine `n` is not prime by definition.
+
 
 
