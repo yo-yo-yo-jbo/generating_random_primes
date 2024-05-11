@@ -50,7 +50,12 @@ Naively, we multiply `a` by itself `n` times, and each time take the result `mod
 Well, we don't *really* need to multiply `a` by itself `n` times. For example, to calculate `a^8` we need to take `a^2` and then square it, and square that result, i.e. `a^8 = ((a^2)^2)^2`. That approach is excellent for powers of two, but what do we do with non-powers of two?  
 Well, or number `n-1` can be represented as `n-1 = 2^s*r` where `r` is odd and `s` is some integer. We can calculate the powers of two very efficiently (takes `s` steps), so we only need to calculate `a^r (mod n)` efficiently.  
 One of the coolest approach we could take is to look at the binary representation of `r` and multiply those as powers of 2. Let's see an example!  
-Assuming we want `a^13` we could note `13` is `1101` in binary, and we note: `a^13 = a^8 * a^4 * a^1`. Of course, all of those are powers of 2 so they can be calculated quite efficiently.
+Assuming we want `a^13` we could note `13` is `1101` in binary, and we note: `a^13 = a^8 * a^4 * a^1`. Of course, all of those are powers of 2 so they can be calculated quite efficiently.  
 
+## The Miller-Rabin algorithm
+Finally, we could describe our primality test:
+1. Given `a` and `n`, check if `a` and `n` are coprimes. That could be done very efficiently (logarithmic complexity) using the [Euclidean algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm), which I have discussed before. If they are not coprimes, then determine `n` is composite.
+2. Find values `s` and `r` such that `n-1 = 2^s*r`. This could be done efficiently by dividing `n-1` by 2 until we get an odd number, which also have a logarithmic complexity.
+3. 
 
 
