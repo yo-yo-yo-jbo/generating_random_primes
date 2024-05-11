@@ -54,8 +54,12 @@ Assuming we want `a^13` we could note `13` is `1101` in binary, and we note: `a^
 
 ## The Miller-Rabin algorithm
 Finally, we could describe our primality test:
-1. Given `a` and `n`, check if `a` and `n` are coprimes. That could be done very efficiently (logarithmic complexity) using the [Euclidean algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm), which I have discussed before. If they are not coprimes, then determine `n` is composite.
+1. Given `a` and `n`, check if `a` and `n` are coprimes. That could be done very efficiently (logarithmic complexity) using the [Euclidean algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm), which I have discussed before. If they are not coprimes, then determine `n` is definitely composite.
 2. Find values `s` and `r` such that `n-1 = 2^s*r`. This could be done efficiently by dividing `n-1` by 2 until we get an odd number, which also have a logarithmic complexity.
-3. 
+3. Compute `x = a^r (mod n)` efficiently as we've described. If `x` is `1` or `n-1` then we determine that `n` *might* be prime, since squaring `1` or `n-1` (which is really `-1 (mod n)` will give us values of `1` for sure.
+4. Square `x` for `s` steps. In each step check if we got `1` - if we did then we found a non-trivial root of 1 and we know `n` is definition composite. If we got `-1` then we know we will have `1` in our next squaring operation and determine that `n` *might* be prime.
+5. If we're done with step 4 and didn't get `1` then we know `n` is definition composite (because it violates Fermat's Little theorem).
+
+
 
 
