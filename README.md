@@ -60,6 +60,12 @@ Finally, we could describe our primality test:
 4. Square `x` for `s` steps. In each step check if we got `1` - if we did then we found a non-trivial root of 1 and we know `n` is definition composite. If we got `-1` then we know we will have `1` in our next squaring operation and determine that `n` *might* be prime.
 5. If we're done with step 4 and didn't get `1` then we know `n` is definition composite (because it violates Fermat's Little theorem).
 
+Note that if the test determines `n` is composite - we know *for sure* that it's composite. Otherwise, `n` *might* be prime.  
+What is the probability? Well, Miller-Rabin assures us that checking `k` different values of `a` gives us a chance of `0.25^k` to make a mistake.  
+Those are excellent odds - we could just repeat the primality test until `0.25^k` is astronomically small, and that's exactly what is used in most modern cryptosystems for creating random primes.  
+Also note the entire algorithm is very efficient, and in fact, it's `O(log(n)^3)`, which is a good reason why it's used even though it's a probabilistic algorithm.  
+Note that in 2002 humanity discovered its first deterministic primality algorithm (the [AKS primality test](https://en.wikipedia.org/wiki/AKS_primality_test)), but its complexity is `O(log(n)^6)`.
+
 
 
 
