@@ -66,6 +66,12 @@ Those are excellent odds - we could just repeat the primality test until `0.25^k
 Also note the entire algorithm is very efficient, and in fact, it's `O(log(n)^3)`, which is a good reason why it's used even though it's a probabilistic algorithm.  
 Note that in 2002 humanity discovered its first deterministic primality algorithm (the [AKS primality test](https://en.wikipedia.org/wiki/AKS_primality_test)), but its complexity is `O(log(n)^6)`.
 
+## Summary
+This blogpost was a bit mathematical, but not terribly mathematical - we used our knowledge of Modular arithmetics and some cool elemetry number theory ideas to describe how prime numbers are efficiently generated.  
+I find it fascinating that many descriptions of cryptosystems have a "generate a random prime number" step in them, treating it as a black-box.  
+I therefore hope this blogpost was useful!
 
+Stay tuned!
 
+Jonathan Bar Or
 
